@@ -1,6 +1,6 @@
-# Jeremy's Assembly notes
+# Jeremy's x86 Assembly notes
 
-## Syntax
+### Syntax
 
 * Comments: One line starting with #
 * Statements: One line does one thing
@@ -13,19 +13,6 @@
 * Conditionals/Iteration: Assembly instructions that jump to code locations
 * Aggregate Data: NONE, need to use stack/multiple registers
 * Library System: link to other code
-
-### Register Overview
-
-* Syntax states they should be named with "%" at the start
-* Instruction and register names note whether 16 bit (not used), 32 bit, or 64 bit
-* Register names and function endings based off of sizes:
-
-| **Bits**  | **Suffix**    | **Naming Convention**     |
-| :-------: | :-----------: | :-----------------------: |
-| 8         | -b            | %al, %bl, %cl, etc.       |
-| 16        | -w            | %ax, %bx, %cx, etc.       |
-| 32        | -l            | %eax, %ebx, %ecx, etc.    |
-| 64        | -q            | %rax, %rbx, %rcx, etc.    |
 
 ### Register Functions
 
@@ -57,17 +44,30 @@
 * syscall: Place system call number in %rax, and then args in normal order, then then syscall
 * lea: Load Address Into (Address-Of) - Ex: leaq 8(%rdx),%rax # rax = rdx+1 = \#1032
 
+### Register Overview
+
+| **Bits**  | **Suffix**    | **Naming Convention**     |
+| :-------- | :------------ | :------------------------ |
+| 8         | -b            | %al, %bl, %cl, etc.       |
+| 16        | -w            | %ax, %bx, %cx, etc.       |
+| 32        | -l            | %eax, %ebx, %ecx, etc.    |
+| 64        | -q            | %rax, %rbx, %rcx, etc.    |
+
 ### Use of Each Variable
 
-* Return Value: %rax, %eax, %ax, %al
-* Arg 1: %rdi, %edi, %di, %dil
-* Arg 2: %rsi, %esi, %si, %sil
-* Arg 3: %rdx, %edx, %dx, %dl
-* Arg 4: %rcx, %ecx, %cx, %cl
-* Arg 5: %r8, %r8d, %r8w, %r8b
-* Arg 6: %r9, %r9d, %r8w, %r8b
-* Stack Ptr: %rsp, %esp, %sp, %spl
-* (Might Not Exist) Base Ptr: %rbp, %ebp, %bp, %bpl
+| **Use**    | **64-bit**   | **32-bit**    | **16-bit**    | **8-bit** |
+| :--------- | :----------- | :------------ | :------------ | :-------- |
+| Return Val | %rax         | %eax          | %ax           | %al       |
+| Arg 1      | %rdi         | %edi          | %di           | %dil      |
+| Arg 2      | %rsi         | %esi          | %si           | %sil      |
+| Arg 3      | %rdx         | %edx          | %dx           | %dl       |
+| Arg 4      | %rcx         | %ecx          | %cx           | %cl       |
+| Arg 5      | %r8          | %r8d          | %r8w          | %r8b      |
+| Arg 6      | %r9          | %r9d          | %r8w          | %r8b      |
+| Stack Ptr  | %rsp         | %esp          | %sp           | %spl      |
+| Base Ptr   | %rbp         | %ebp          | %bp           | %bpl      |
+
+Note: Base Ptr might not exist, optimized out by compiler a lot of times
 
 ### Operands and Addressing Modes
 
