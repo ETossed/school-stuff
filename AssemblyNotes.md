@@ -16,33 +16,36 @@
 
 ### Register Functions
 
-* mov: Moves Memory
-* vmov: Moves Memory (Floating-Points)
-* push, pop: Stack Functions
-* Arithmetic Functions
-    * add, sub: Basic Addition and Subtraction
-    * mul, div: Unsigned Multiplication/Division
-    * imul, idiv: Signed Multiplication/Division
-    * vadd,vsub,vmul,vdiv: Same As Above But For Floating-Points
-    * inc, dec: +1 Operations
-    * neg: Negate
-    * not: Complement
-* Bitwise
-    * and,or,xor,not: Bitwise logicals
-    * sal, shl: Left Shifts (Identical)
-    * sar: Right Shift (Signed)
-    * shr: Right Shift (Unsigned)
-* Conditionals:
-    * cmp, test: Compare and Test
-    * jmp: Unconditional Jump
-    * je,jne: Jump If (Not) Equal
-    * jl,jg: Jump If Less Than/Greater Than
-* Conditional Movement
-    * cmove, cmovne: Move If (Not) Equal
-    * cmovl, cmovg: Move If Less Than/Greater Than
-* Call/Return call,ret
-* syscall: Place system call number in %rax, and then args in normal order, then then syscall
-* lea: Load Address Into (Address-Of) - Ex: leaq 8(%rdx),%rax # rax = rdx+1 = \#1032
+| Movement Functions    |                                    |
+|-----------------------|------------------------------------|
+| movX                  | Moves Memory                       |
+| pushX, popX           | Stack Functions                    |
+| Arithmetic Functions  |                                    |
+| addX, subX            | Addition/Subtraction               |
+| mulX, divX            | Multiplication/Division (Unsigned) |
+| imulX, idivX          | Multiplication/Division (Signed)   |
+| incX, decX            | =+1/-1                             |
+| negX                  | Negate                             |
+| notX                  | Complement (~A)                    |
+| Bitwise Functions     |                                    |
+| andX, orX, xorX, notX | Bitwise Logicals                   |
+| salX, shlX            | Left Shifts (Identical)            |
+| sarX                  | Right Shift (Signed)               |
+| shrX                  | Right Shift (Unsigned)             |
+| Conditionals          |                                    |
+| cmpX, testX           | Compare and Test                   |
+| jmp                   | Unconditional Jump                 |
+| je, jne               | Jump If (Not) Equal To             |
+| jl, jg                | Jump if Less Than/Greater Than     |
+| cmoveX, cmovneX       | Move if (Not) Equal To             |
+| cmovlX, cmovgX        | Move If Less Than/Greater Than     |
+| Others                |                                    |
+| call, ret             | Call, Return                       |
+| Syscall               | SEE NOTE                           |
+| leaX                  | SEE NOTE                           |
+
+NOTE: syscall - Place system call number in %rax, and then args in normal order, then then syscall
+NOTE: leaX - Load Address Into (Address-Of) - Ex: leaq 8(%rdx),%rax # rax = rdx+1 = \#1032
 
 ### Register Overview
 
@@ -72,7 +75,7 @@ Note: Base Ptr might not exist, optimized out by compiler a lot of times
 ### Operands and Addressing Modes
 
 | **Style**         | **Mode**      | **C-equivalent**      |
-| :---------------: | :-----------: | :-------------------: |
+| :---------------- | :------------ | :-------------------- |
 | $21/$0xD2         | Immediate     | 21/0xD2 (210)         |
 | %rax              | Register      | rax                   |
 | (%rax)            | Indirect      | *rax                  |
