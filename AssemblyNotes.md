@@ -16,35 +16,36 @@
 
 ### Register Functions
 
-| Movement Functions    |                                    |
-|-----------------------|------------------------------------|
-| movX                  | Moves Memory                       |
-| pushX, popX           | Stack Functions                    |
-| Arithmetic Functions  |                                    |
-| addX, subX            | Addition/Subtraction               |
-| mulX, divX            | Multiplication/Division (Unsigned) |
-| imulX, idivX          | Multiplication/Division (Signed)   |
-| incX, decX            | =+1/-1                             |
-| negX                  | Negate                             |
-| notX                  | Complement (~A)                    |
-| Bitwise Functions     |                                    |
-| andX, orX, xorX, notX | Bitwise Logicals                   |
-| salX, shlX            | Left Shifts (Identical)            |
-| sarX                  | Right Shift (Signed)               |
-| shrX                  | Right Shift (Unsigned)             |
-| Conditionals          |                                    |
-| cmpX, testX           | Compare and Test                   |
-| jmp                   | Unconditional Jump                 |
-| je, jne               | Jump If (Not) Equal To             |
-| jl, jg                | Jump if Less Than/Greater Than     |
-| cmoveX, cmovneX       | Move if (Not) Equal To             |
-| cmovlX, cmovgX        | Move If Less Than/Greater Than     |
-| Others                |                                    |
-| call, ret             | Call, Return                       |
-| Syscall               | SEE NOTE                           |
-| leaX                  | SEE NOTE                           |
+| Movement Functions        |                                    |
+|-------------------------- |------------------------------------|
+| movX                      | Moves Memory                       |
+| pushX, popX               | Stack Functions                    |
+| **Arithmetic Functions**  |                                    |
+| addX, subX                | Addition/Subtraction               |
+| mulX, divX                | Multiplication/Division (Unsigned) |
+| imulX, idivX              | Multiplication/Division (Signed)   |
+| incX, decX                | =+1/-1                             |
+| negX                      | Negate                             |
+| notX                      | Complement (~A)                    |
+| **Bitwise Functions**     |                                    |
+| andX, orX, xorX, notX     | Bitwise Logicals                   |
+| salX, shlX                | Left Shifts (Identical)            |
+| sarX                      | Right Shift (Signed)               |
+| shrX                      | Right Shift (Unsigned)             |
+| **Conditionals**          |                                    |
+| cmpX, testX               | Compare and Test                   |
+| jmp                       | Unconditional Jump                 |
+| je, jne                   | Jump If (Not) Equal To             |
+| jl, jg                    | Jump if Less Than/Greater Than     |
+| cmoveX, cmovneX           | Move if (Not) Equal To             |
+| cmovlX, cmovgX            | Move If Less Than/Greater Than     |
+| **Others**                |                                    |
+| call, ret                 | Call, Return                       |
+| Syscall                   | SEE NOTE                           |
+| leaX                      | SEE NOTE                           |
 
 NOTE: syscall - Place system call number in %rax, and then args in normal order, then then syscall
+
 NOTE: leaX - Load Address Into (Address-Of) - Ex: leaq 8(%rdx),%rax # rax = rdx+1 = \#1032
 
 ### Register Overview
@@ -70,7 +71,7 @@ NOTE: leaX - Load Address Into (Address-Of) - Ex: leaq 8(%rdx),%rax # rax = rdx+
 | Stack Ptr  | %rsp         | %esp          | %sp           | %spl      |
 | Base Ptr   | %rbp         | %ebp          | %bp           | %bpl      |
 
-Note: Base Ptr might not exist, optimized out by compiler a lot of times
+NOTE: Base Ptr might not exist, optimized out by compiler a lot of times
 
 ### Operands and Addressing Modes
 
