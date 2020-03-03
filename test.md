@@ -1,3 +1,3 @@
-| Movement Function |           |
+| Movement Function             |
 |-------------------|-----------|
 | Function          | Movements |
